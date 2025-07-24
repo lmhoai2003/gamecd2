@@ -11,14 +11,14 @@ public class PlayerProperties : NetworkBehaviour
     [Networked, OnChangedRender(nameof(OnHPChanged))]
     public int _hpPlayer { get; set; } = 100;
 
-
     public TextMeshPro hpText;
-
     public TextMeshPro nameText;
+    [SerializeField] private Animator animator;
+    private bool checkdie = false;
 
     public void OnHPChanged()
     {
-        hpText.text = _hpPlayer.ToString() + "\ncon nice";
+        hpText.text = _hpPlayer.ToString(); 
     }
 
 
@@ -30,6 +30,16 @@ public class PlayerProperties : NetworkBehaviour
             if (_hpPlayer <= 0)
             {
                 _hpPlayer = 0;
+                if (!checkdie)
+                {
+                    checkdie = true;
+                    animator.SetTrigger("die");
+                    Debug.Log("Player is dead");
+                }
+            }
+            else
+            {
+                animator.SetTrigger("hitdame");
             }
             Debug.Log("va cham voi quai hehe: " + _hpPlayer);
         }
