@@ -1,33 +1,45 @@
 using UnityEngine;
 using Fusion;
+using System.Collections;
 
 public class GunScript : NetworkBehaviour
 {
     public NetworkObject bulletPrefabs;
     public Transform firePoint;
+    
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(1))
         {
-            if (Input.GetKeyDown(KeyCode.Space) && Object.HasInputAuthority)
+            if (Input.GetMouseButtonDown(1) && Object.HasInputAuthority)
             {
                 var bullet = Runner.Spawn(bulletPrefabs, firePoint.position, firePoint.rotation);
-                // bullet.GetComponent<Rigidbody>().AddForce(firePoint.forward * 20f, ForceMode.Impulse);
 
-                //bắn viên đạn ra theo hướng camera
                 if (Camera.main != null)
                 {
                     Vector3 cameraForward = Camera.main.transform.forward;
-                    cameraForward.y = 0; // Đảm bảo viên đạn không bay lên trời
+                    cameraForward.y = 0;
                     cameraForward.Normalize();
-                    // bullet.GetComponent<Rigidbody>().AddForce(cameraForward * 20f, ForceMode.Impulse);
                     bullet.GetComponent<Rigidbody>().AddForce(cameraForward * 20f, ForceMode.Impulse);
 
                     //sau 2s tiến hành hủy viên đạn
+                    StartCoroutine(DespawnBulletAfterDelay(bullet, 3f));
 
                 }
             }
+        }
+
+
+    }
+
+    IEnumerator DespawnBulletAfterDelay(NetworkObject bullet, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (bullet != null)
+        {
+            Runner.Despawn(bullet);
         }
     }
 }

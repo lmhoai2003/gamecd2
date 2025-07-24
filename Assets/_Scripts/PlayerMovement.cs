@@ -10,6 +10,8 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Animation")]
     [SerializeField] private Animator animator;
 
+
+
     public override void FixedUpdateNetwork()
     {
         if (Input.GetKeyDown(KeyCode.RightControl))
@@ -58,11 +60,25 @@ public class PlayerMovement : NetworkBehaviour
         //nhấn cách để nhảy
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            velocity.y = Mathf.Sqrt(-2f * gravity * 1.5f); 
+            velocity.y = Mathf.Sqrt(-2f * gravity * 1.5f);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Bấm chuột phải - đánh");
+            animator.SetTrigger("danh");
+            //xoay nhân vật theo hướng camera
+            Vector3 cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0; // Đảm bảo không có chuyển động theo trục Y
+            cameraForward.Normalize();
+            transform.rotation = Quaternion.LookRotation(cameraForward);
+
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator.SetTrigger("nhatdo");
         }
 
 
-        
-    
+
     }
 }

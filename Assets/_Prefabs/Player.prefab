@@ -152,13 +152,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403703561299024908}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -128, z: 83}
+  m_LocalRotation: {x: -0.06341097, y: -0.70425785, z: 0.70425785, w: 0.06341097}
+  m_LocalPosition: {x: -86, y: -291, z: 93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7527241663781627677}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_Father: {fileID: 3915445133098188507}
+  m_LocalEulerAnglesHint: {x: 79.71, y: -90, z: 90}
 --- !u!1 &448405342751824732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 896584664597444470}
   - {fileID: 393239149489330495}
   m_Father: {fileID: 8186059044518055551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2220,7 +2221,6 @@ Transform:
   - {fileID: 1033230351378963167}
   - {fileID: 8422213892402406180}
   - {fileID: 1553260127234359237}
-  - {fileID: 896584664597444470}
   m_Father: {fileID: 1568659736957109474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6549972840325722114
@@ -2321,7 +2321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7203289513955639889}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.10818501, w: 0.99413085}
   m_LocalPosition: {x: 22.837208, y: 10.37468, z: 22.884954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2331,7 +2331,7 @@ Transform:
   - {fileID: 6534603164111027666}
   - {fileID: 3050125857014608391}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.421}
 --- !u!95 &595669424582060220
 Animator:
   serializedVersion: 7
@@ -2444,7 +2444,7 @@ MonoBehaviour:
   _controller: {fileID: 4145237666466136241}
   speed: 12
   gravity: -9.81
-  animator: {fileID: 0}
+  animator: {fileID: 595669424582060220}
 --- !u!143 &4145237666466136241
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2485,6 +2485,7 @@ MonoBehaviour:
   __hpPlayer: 100
   hpText: {fileID: 9162280058223867394}
   nameText: {fileID: 3787491661307404663}
+  animator: {fileID: 595669424582060220}
 --- !u!114 &8621322640817681406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2497,7 +2498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28205af0fef888142acb8bf0d0d4c56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefabs: {fileID: 751635436843645272, guid: a97d137160e8bfc44adff86805406251, type: 3}
+  bulletPrefabs: {fileID: 4824975652445863619, guid: 428fc129fac69264fadafe21e5d063d5, type: 3}
   firePoint: {fileID: 896584664597444470}
 --- !u!1 &7258123897660386658
 GameObject:
